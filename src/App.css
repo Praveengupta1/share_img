@@ -44,3 +44,6 @@ input:focus {
   color: #ffff;
   cursor: pointer;
 }
+.Submit:disabled{
+  background-color: #df98be;
+}

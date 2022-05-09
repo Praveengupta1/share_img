@@ -6,10 +6,12 @@ const App = () => {
   const [name, setName] = useState("");
   const [flag, setFlag] = useState(false);
   const [file, setFile] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (name && file) {
+      setLoading(true);
       let data = new FormData();
       data.append("name", name);
       data.append("img", file);
@@ -28,6 +30,7 @@ const App = () => {
   };
   const handleReset = () => {
     setFlag(false);
+    setLoading(false);
     setFile(null);
   };
   return (
@@ -50,9 +53,12 @@ const App = () => {
 
             <input type="file" onChange={(e) => setFile(e.target.files[0])} />
             <br />
-            <button onClick={handleSubmit} className="Submit">
-              {" "}
-              Submit
+            <button
+              onClick={handleSubmit}
+              className="Submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Uploading" : "Submit"}
             </button>
           </form>
         </div>
