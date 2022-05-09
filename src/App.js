@@ -16,7 +16,7 @@ const App = () => {
       let options = {
         method: "post",
         headers: { "Access-Control-Allow-Origin": "*" },
-        url: "http://localhost:8080/api/upload",
+        url: "https://k-share.herokuapp.com/api/upload",
         data: data,
       };
       axios(options)
